@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        ♥
+        The Balance of love
+        ♥
+    </title>
+
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="src/image/favicon.png">
+    <link rel="apple-touch-icon" href="src/image/icon57.png" sizes="57x57">
+    <link rel="apple-touch-icon" href="src/image/icon72.png" sizes="72x72">
+    <link rel="apple-touch-icon" href="src/image/icon76.png" sizes="76x76">
+    <link rel="apple-touch-icon" href="src/image/icon114.png" sizes="114x114">
+    <link rel="apple-touch-icon" href="src/image/icon120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="src/image/icon144.png" sizes="144x144">
+    <link rel="apple-touch-icon" href="src/image/icon152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="src/image/icon180.png" sizes="180x180">
+    <!-- END Icons -->
+
+
+
+
+    <link type="text/css" rel="stylesheet" href="src/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="src/css/bootstrap-vue.min.css" />
+
+    <script src="src/js/polyfill.min.js"></script>
+    <script src="src/js/vue.min.js"></script>
+    <script src="src/js/bootstrap-vue.min.js"></script>
+    <style>
+        .close {
+            left: 0px;
+            position: absolute;
+        }
+
+        #Questionnaire {
+            display: inline;
+            direction: rtl;
+            text-align: right
+        }
+
+
+        header {
+            background: url('src/image/header.jpg') no-repeat center;
+            height: 30px;
+        }
+
+        footer {
+            background: url('src/image/footer.jpg') no-repeat center;
+            height: 30px;
+        }
+
+        .responsive {
+            width: 100%;
+            height: auto;
+        }
+
+        .header {
+            background: url('src/image/header.jpg') no-repeat center;
+            height: 215px;
+        }
+
+        .PLove {
+
+
+            color: white;
+            font-size: 50px;
+            font-weight: 500;
+            position: absolute;
+            left: 188px;
+            top: 140px;
+        }
+    </style>
+    <!-- <script src="vue.js"></script> -->
+</head>
+
+<body>
+    <header class="header">
+
+
+    </header>
+    <div id="Questionnaire">
+        <b-container>
+
+            <b-row>
+                <b-col cols="5">
+
+                </b-col>
+
+                <b-col cols="6">
+
+                    <table>
+
+                        <tr>
+                            <td> <label for="">{{NBModel[0].Question}}</label></td>
+                            <td>
+                                <b-dropdown variant="outline-danger" v-model="Features[0].value"
+                                    :text="Features[0].text" class="m-md-2" dropleft>
+                                    <b-dropdown-item v-for="option in this.options" :key="option.value"
+                                        :value="option.value" @click="Features[0].value = option.value;
+                                             Features[0].text= option.text;
+                                                ">
+                                        {{option.text}}
+                                    </b-dropdown-item>
+                                </b-dropdown>
+                            </td>
+                        </tr>
+
+
+
+                        <tr>
+                            <td> <label for="">{{NBModel[1].Question}}</label></td>
+                            <td>
+                                <b-dropdown variant="outline-danger" v-model="Features[1].value"
+                                    :text="Features[1].text" class="m-md-2" dropleft>
+                                    <b-dropdown-item v-for="option in this.options" :key="option.value"
+                                        :value="option.value" @click="Features[0].value = option.value;
+                                                     Features[1].text= option.text;
+                                                        ">
+                                        {{option.text}}
+                                    </b-dropdown-item>
+                                </b-dropdown>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <label for="">{{NBModel[2].Question}}</label></td>
+                            <td>
+                                <b-dropdown variant="outline-danger" v-model="Features[2].value"
+                                    :text="Features[2].text" class="m-md-2" dropleft>
+                                    <b-dropdown-item v-for="option in this.options" :key="option.value"
+                                        :value="option.value" @click="Features[2].value = option.value;
+                                                     Features[2].text= option.text;
+                                                        ">
+                                        {{option.text}}
+                                    </b-dropdown-item>
+                                </b-dropdown>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <label for="">{{NBModel[3].Question}}</label></td>
+                            <td>
+                                <b-form-checkbox v-model="Features[3].value">
+                                </b-form-checkbox>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td> <label for="">{{NBModel[4].Question}}</label></td>
+                            <td>
+                                <b-form-checkbox v-model="Features[4].value">
+                                </b-form-checkbox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <label for="">{{NBModel[5].Question}}</label></td>
+                            <td>
+                                <b-form-checkbox v-model="Features[5].value">
+                                </b-form-checkbox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div>
+                                    <br>
+                                    <b-button v-b-modal.modal-1 @click="test()" variant="danger">Does he love me !!!
+                                    </b-button>
+
+                                    <!-- Modal Component -->
+                                    <b-modal id="modal-1" title="Does he love me !!!! ">
+                                        <div class=" my-4">
+                                            <div calss="modal-body">
+                                                <img src="src/image/PLove.png" class="responsive" alt="modelBody">
+                                                <span class="PLove">{{PLove}}</span>
+                                            </div>
+
+                                        </div>
+                                    </b-modal>
+                                </div>
+                            </td>
+                        </tr>
+
+
+                    </table>
+
+                </b-col>
+                <b-col cols="3"> </b-col>
+            </b-row>
+        </b-container>
+
+    </div>
+    <footer></footer>
+    <script>
+        console.log();
+
+        var app = new Vue({
+            el: '#Questionnaire',
+            data: {
+                NBModel: [
+                    {
+                        id: "F1", Question: "تقديم التضحيات", values: [
+                            { value: 0, Love: 0.31, NotLove: 0.43 },
+                            { value: 1, Love: 0.38, NotLove: 0.29 },
+                            { value: 2, Love: 0.31, NotLove: 0.29 },
+                        ]
+                    },
+
+                    {
+                        id: "F2", Question: "الالتزام بالمواعيد", values: [
+                            { value: 0, Love: 0.08, NotLove: 0.29 },
+                            { value: 1, Love: 0.38, NotLove: 0.57 },
+                            { value: 2, Love: 0.54, NotLove: 0.14 },
+                        ]
+                    },
+                    {
+                        id: "F3", Question: "تقيم هدايه", values: [
+                            { value: 0, Love: 0.08, NotLove: 0.50 },
+                            { value: 1, Love: 0.46, NotLove: 0.63 },
+                            { value: 2, Love: 0.46, NotLove: 0.13 },
+                        ]
+                    },
+                    {
+                        id: "F4", Question: "عدم الملل", values: [
+                            { value: 0, Love: 0.23, NotLove: 0.71 },
+                            { value: 1, Love: 0.77, NotLove: 0.29 },
+
+                        ]
+                    },
+                    {
+                        id: "F5", Question: "الاهتمام بمشاكلي", values: [
+                            { value: 0, Love: 0.23, NotLove: 0.57 },
+                            { value: 1, Love: 0.77, NotLove: 0.43 },
+
+                        ]
+                    },
+
+
+                    {
+                        id: "F6", Question: "احترام الراي", values: [
+                            { value: 0, Love: 0.38, NotLove: 0.71 },
+                            { value: 1, Love: 0.62, NotLove: 0.29 },
+
+                        ]
+                    },
+
+
+
+
+
+                ],
+                Features: [
+                    { id: "F1", value: "", text: "" },
+                    { id: "F2", value: "", text: "" },
+                    { id: "F3", value: "", text: "" },
+                    { id: "F4", value: 0, text: "" },
+                    { id: "F5", value: 0, text: "" },
+                    { id: "F6", value: 0, text: "" }],
+
+                options: [
+                    {
+                        "value": 2,
+                        "text": "نعم"
+                    },
+                    {
+                        "value": 1,
+                        "text": "احيانا"
+                    },
+                    {
+                        "value": 0,
+                        "text": "لا"
+                    }
+                ],
+                PLove: 0
+
+
+            },
+
+            methods: {
+                test: function () {
+                    var VLove = 0.65, VNotLove = 0.35;
+
+                    this.NBModel.forEach(element => {
+                        this.Features.forEach(f => {
+                            if (f.id == element.id)
+                                element.values.forEach(v => {
+                                    if (v.value == f.value) {
+                                        VLove *= v.Love;
+                                        VNotLove *= v.NotLove;
+                                    }
+
+                                });
+
+                        });
+                    });
+
+
+                    this.PLove = Number(((VLove / (VLove + VNotLove)) * 100).toFixed(1));
+
+
+                }
+
+
+            },
+
+        })
+    </script>
+
+</body>
+
+</html>
